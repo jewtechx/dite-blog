@@ -3,10 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
+import { Autoplay,EffectFade, Navigation, Pagination } from 'swiper/modules';
 import heroImg1 from "../../assets/images/heroImg1.jpg";
 import heroImg2 from "../../assets/images/heroImg2.jpg";
 import heroImg3 from "../../assets/images/heroImg4.jpg";
-import { Autoplay,EffectFade, Navigation, Pagination } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
 export default function Hero() {
@@ -30,9 +30,9 @@ export default function Hero() {
       <Swiper
         spaceBetween={30}
         effect={'fade'}
-        pagination={{
-          clickable: true,
-        }}
+        // pagination={{
+        //   clickable: true,
+        // }}
         modules={[Autoplay,EffectFade, Navigation, Pagination]}
         className="mySwiper h-[80vh] md:h-[100vh]"
         autoplay={{
@@ -42,18 +42,18 @@ export default function Hero() {
       >
 
         <SwiperSlide className="swiper-slide">
+          <>
+          {OverlayDesign("FASHION", "ESCALATE YOUR CONFIDENCE", "/store")}
+          <img src={heroImg1} alt='swiper1' className='h-[190vh] w-full fixed'/>
+          </>
+        </SwiperSlide>
+        <SwiperSlide className="swiper-slide">
            <>
            {OverlayDesign("IMPRESSIONS", "LIVE IT,LOVE IT!", "/women")}
           <img src={heroImg2} alt='swiper2' className='h-[190vh] w-full fixed'/>
            </>
         </SwiperSlide>
         
-        <SwiperSlide className="swiper-slide">
-          <>
-          {OverlayDesign("FASHION", "ESCALATE YOUR CONFIDENCE", "/store")}
-          <img src={heroImg1} alt='swiper1' className='h-[190vh] w-full fixed'/>
-          </>
-        </SwiperSlide>
 
         <SwiperSlide className="swiper-slide">
           <>
