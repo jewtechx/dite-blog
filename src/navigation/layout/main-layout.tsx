@@ -43,9 +43,9 @@ const Layout = () => {
       {/* Main column */}
       <div className="flex flex-col w-0 flex-1 overflow-hidden">
         {/* Search header */}
-        <div className="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:flex">
+        <div className="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 xl:flex">
           {/* Static navbar for desktop */}
-          <div className=" bg-primary w-screen  px-4 sm:px-6 lg:px-8">
+          <div className=" bg-slate-50 w-screen  px-4 md:px-6 xl:px-8">
             <div className="flex h-16 items-center justify-between">
               <div className="flex items-center gap-x-10">
                 <div className="flex-shrink-0">
@@ -53,19 +53,19 @@ const Layout = () => {
                     <img
                       src="http://touchlili.com/wp-content/uploads/2020/06/logo.png"
                       alt="Touchlily"
-                      className="max-w-[210px]"
+                      className="max-w-[170px]"
                     />
                   </Link>
                 </div>
-                <div className="hidden md:block">
+                <div className="hidden xl:block">
                   <div className="ml-10 flex items-baseline space-x-4">
                     {navigation.map((item) => (
                       <NavLink
                         key={item.name}
                         to={item.href}
                         className={classNames(
-                          "text-white hover:bg-primary_light hover:text-white",
-                          "rounded-md px-3 py-2 text-sm font-medium"
+                          "text-slate-700 hover:bg-blue-100/50 hover:text-slate-700",
+                          "rounded-md px-3 py-2 text-md font-[600]"
                         )}
                       >
                         {item.name}
@@ -78,7 +78,7 @@ const Layout = () => {
                 <div className="ml-4 gap-x-6 flex items-center md:ml-6">
                   <button
                     type="button"
-                    className="rounded-full  p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    className="rounded-full  p-1 text-slate-700 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <span className="sr-only">Search</span>
                     <SearchNormal1 className="h-5 w-5" aria-hidden="true" />
@@ -86,14 +86,14 @@ const Layout = () => {
                   <Link
                     to="jd"
                     type="button"
-                    className="rounded-full  p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    className="rounded-full  p-1 text-slate-700 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <span className="sr-only">Settings</span>
                     <Setting2 className="h-6 w-6" aria-hidden="true" />
                   </Link>{" "}
                   <button
                     type="button"
-                    className="rounded-full  p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    className="rounded-full  p-1 text-slate-700 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -144,7 +144,7 @@ const Layout = () => {
           </div>
           {/* mobile menu button */}
           <button
-            className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 lg:hidden"
+            className="px-4 bg-blue-100/70 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500/50 xl:hidden"
             onClick={() => setSidebarOpen(true)}
           >
             <span className="sr-only">Open sidebar</span>

@@ -1,7 +1,7 @@
 import { Fragment, SetStateAction, useState } from "react";
 import { CiSettings } from "react-icons/ci";
 import { FiLogOut } from "react-icons/fi";
-import { Dialog, Menu, Transition } from "@headlessui/react";
+import { Dialog,Tab, Transition } from "@headlessui/react";
 import { FC } from "react";
 import { Dispatch } from "react";
 import classNames from "../../../helpers/classNames";
@@ -24,7 +24,7 @@ const SideBar: FC<Props> = ({ sidebarOpen, setSidebarOpen }) => {
       <Transition.Root show={sidebarOpen} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 flex z-40 lg:hidden"
+          className="fixed inset-0 flex z-40 xl:hidden"
           onClose={setSidebarOpen}
         >
           <Transition.Child
@@ -47,7 +47,7 @@ const SideBar: FC<Props> = ({ sidebarOpen, setSidebarOpen }) => {
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-white">
+            <div className="relative flex-1 flex flex-col max-w-xs w-full pt-0 pb-4 bg-white">
               <Transition.Child
                 as={Fragment}
                 enter="ease-in-out duration-300"
@@ -71,7 +71,52 @@ const SideBar: FC<Props> = ({ sidebarOpen, setSidebarOpen }) => {
                 </div>
               </Transition.Child>
 
-              {/* This is where sidebar items will go */}
+              {/*displaying sidenavlinks*/}
+               {
+                <Tab.Group>
+                <Tab.List className='flex'>
+                  <Tab 
+                  className={({ selected }) =>
+                  classNames(
+                    "p-4 font-[600] w-full text-xl bg-slate-500/10",
+                    selected
+                      ? 'bg-white shadow border-b-[3px] border-slate-500'
+                      : 'text-slate-500 hover:bg-white/[0.12] hover:text-slate-300'
+                  )
+                }
+                   >MENU</Tab>
+                  <Tab 
+                    className={({ selected }) =>
+                    classNames(
+                      "p-4 font-[600] w-full text-xl bg-slate-500/10",
+                      selected
+                        ? 'bg-white shadow border-b-[3px] border-slate-500'
+                        : 'text-slate-500 hover:bg-white/[0.12] hover:text-slate-300'
+                    )
+                  }
+                  >USER</Tab>
+                </Tab.List>
+                <Tab.Panels>
+                  <Tab.Panel>
+                    {navigation.map((navLink,index) => (
+                        <div key={navLink.name} className={`w-full p-4 border-b-[0.5px] border-slate-200 capitalize`}>
+                          <NavLink to={navLink.href} className={({isActive}) => isActive ? 'font-[600] text-lg capitalize !important text-blue-400/70' : 'font-[600] text-lg capitalize'}>{navLink.name}</NavLink>
+                        </div>
+                    ))}
+                  </Tab.Panel>
+                  <Tab.Panel>
+                     {
+                      userNavigation.map((user,index) => (
+                        <div key={user.name} className={`w-full p-4 border-b-[0.5px]border-slate-200 capitalize`}>
+                          <NavLink to={user.href} className={({isActive}) => isActive ? 'font-[600] text-lg capitalize !important text-blue-400/50' : 'font-[600] text-lg capitalize'}>{user.name}</NavLink>
+                        </div>
+                      ))
+                     }
+                  </Tab.Panel>
+                </Tab.Panels>
+              </Tab.Group>
+    }
+
             </div>
           </Transition.Child>
           <div className="flex-shrink-0 w-14" aria-hidden="true">
