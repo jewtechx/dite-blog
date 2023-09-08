@@ -17,6 +17,9 @@ import { Outlet } from "react-router-dom";
 
 import SideBar from "./sidebar/sidebar";
 import navigation, { userNavigation } from "../navigation";
+import BackToTop from "../../components/backToTop";
+import Footer from "../../components/footer";
+
 const LoadingComponent = () => {
   return (
     <>
@@ -153,10 +156,14 @@ const Layout = () => {
         </div>
         <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none">
           <Suspense fallback={LoadingComponent()}>
+                {/* back to top */}
+                <BackToTop />
             <Outlet />
+                <Footer />
           </Suspense>
         </main>
       </div>
+
     </div>
   );
 };

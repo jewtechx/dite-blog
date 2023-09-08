@@ -21,16 +21,16 @@ export default function AahighqualityP() {
         )
     }
   return (
-    <div className='w-full h-max flex md:flex-col px-16 mt-[160px]'>
-      <div className="hidden md:flex md:flex-row flex-col justify-between">
-        <img src='/src/assets/images/banner5.jpg' className='w-2/5 h-1/3' alt='banner5'/>
-        <img src='/src/assets/images/banner6.jpg' className='w-2/5 h-1/3 mt-8' alt='banne6'/>
+    <div className='container w-full h-max flex xl:flex-row-reverse flex-col px-2 mt-[160px]'>
+      <div className=" flex gap-4 w-full justify-center">
+          <img src='/src/assets/images/banner5.jpg' className='w-2/5 md:w-2/5 h-3/4' alt='banner3'/>
+          <img src='/src/assets/images/banner6.jpg' className='w-2/5 mt-4 md:w-2/5 h-3/4' alt='banner3'/>
       </div>
 
 
-      <div className="flex flex-col gap-2 mt-10">
+      <div className="flex flex-col gap-2 mt-10 w-full xl:w-2/4 ">
         <h1 className='text-slate-800 text-4xl'>Best Selection of <br /><span className='text-slate-950 font-[700] underline underline-offset-8 '>High-Quality</span> products</h1>
-        <p className='mt-8 text-slate-700/80 text-xl tracking-normal font-[450] w-80 md:w-full'>To achieve this, we have partnered with retailers all over the country to list their products online. Browse through our store for products from your favorite stores. </p>
+        <p className='mt-8 text-slate-700/80 text-xl tracking-normal font-[450] w-full md:w-full'>To achieve this, we have partnered with retailers all over the country to list their products online. Browse through our store for products from your favorite stores. </p>
 
 
         <Swiper

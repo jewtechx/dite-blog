@@ -3,11 +3,9 @@ import classNames from "../../helpers/classNames";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import Hero from './hero'
-import WomenCollectionBanner from "./womenCollectionBanner";
-import MenCollectionBanner from "./menCollectionBanner";
+import CollectionBanner from "./CollectionBanner";
 import BrowseProducts from "./browseProducts";
 import Banner2 from "./banner2";
-import TextBanner from "./textBanner";
 import Banner3 from "./banner3";
 import AahighqualityP from "./a&highqualityp";
 import QuickChekout from "./quickChekout";
@@ -18,11 +16,9 @@ function Home() {
     <div className="px-1">
         <Hero/> 
         <div className="w-screen px-4 py-24">
-           <WomenCollectionBanner />
-           <MenCollectionBanner />
+           <CollectionBanner />
            <BrowseProducts />
            <Banner2 />
-           <TextBanner />
            <Banner3 />
            <AahighqualityP />
            <QuickChekout />
