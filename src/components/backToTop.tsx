@@ -12,7 +12,7 @@ export default function BackToTop() {
         onClick={() => {
           window.scrollTo(0,0);
           alert(scrollY)
-        }}
+        }}   
       >
         <ArrowUp />
       </div>
