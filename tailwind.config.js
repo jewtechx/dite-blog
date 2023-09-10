@@ -9,7 +9,7 @@ export default {
         primary_light: "#5E90CC",
         secondary: "#010024",
         tertiary: "#FE9DE2",
-        background: "#F5F7F9",
+        background: "hsla(222, 47%, 11%, 1)",
         dark: "#010024",
         darktxt: "#637381",
         darkBlue: "#151a33",
@@ -19,9 +19,13 @@ export default {
         darknight: "#252A2F",
         icon: "#9E9E9E",
         sidebar: "#333333",
+        active:'hsla(199, 89%, 49%, 1)',
       },
       fontFamily: {
         manrope: ["Manrope"],
+      },
+      backgroundColor: {
+        'hsla-222-44-13-100': 'hsla(222, 44%, 13%, 1)',
       },
     },
   },

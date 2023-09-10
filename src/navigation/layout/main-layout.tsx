@@ -1,4 +1,4 @@
-import { Fragment, Suspense, useEffect, useState } from "react";
+import { Fragment, Suspense, useEffect, useState} from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ArrowSmallLeftIcon } from "@heroicons/react/24/outline";
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/20/solid";
@@ -6,8 +6,6 @@ import classNames from "../../helpers/classNames";
 import { CenterLoader } from "../../utils/loaders/index";
 import { CiSettings } from "react-icons/ci";
 import { FiLogOut } from "react-icons/fi";
-import { FC } from "react";
-import { Dispatch } from "react";
 
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -17,8 +15,6 @@ import { Outlet } from "react-router-dom";
 
 import SideBar from "./sidebar/sidebar";
 import navigation, { userNavigation } from "../navigation";
-import BackToTop from "../../components/backToTop";
-import Footer from "../../components/footer";
 
 const LoadingComponent = () => {
   return (
@@ -39,22 +35,22 @@ const Layout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="relative h-screen flex overflow-hidden bg-white">
+    <div className="relative h-screen flex overflow-hidden bg-background">
       {/* for sidebar */}
       <SideBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
       {/* Main column */}
       <div className="flex flex-col w-0 flex-1 overflow-hidden">
         {/* Search header */}
-        <div className="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 xl:flex">
+        <div className="relative z-10 flex-shrink-0 flex h-18 bg-white-300 border-b-[0.1px] border-gray-400/10 xl:flex">
           {/* Static navbar for desktop */}
-          <div className=" bg-slate-50 w-screen  px-4 md:px-6 xl:px-8">
+          <div className=" bg-hsla-222-44-13-100 w-screen  px-4 md:px-6 xl:px-8">
             <div className="flex h-16 items-center justify-between">
               <div className="flex items-center gap-x-10">
                 <div className="flex-shrink-0">
                   <Link to="/">
                     <img
-                      src="http://touchlili.com/wp-content/uploads/2020/06/logo.png"
+                      src={"/src/assets/images/logo.svg"}
                       alt="Touchlily"
                       className="max-w-[170px]"
                     />
@@ -65,10 +61,11 @@ const Layout = () => {
                     {navigation.map((item) => (
                       <NavLink
                         key={item.name}
+                        style={({isActive}) => isActive ? {color:'hsla(199, 89%, 49%, 1)'} : {}}
                         to={item.href}
                         className={classNames(
-                          "text-slate-700 hover:bg-blue-100/50 hover:text-slate-700",
-                          "rounded-md px-3 py-2 text-md font-[600]"
+                          " text-slate-200 hover:text-active",
+                          "rounded-md px-3 py-2 text-md font-[500]"
                         )}
                       >
                         {item.name}
@@ -77,14 +74,17 @@ const Layout = () => {
                   </div>
                 </div>
               </div>
-              <div className="hidden md:block">
+              <div className="hidden md:block text-slate-200">
                 <div className="ml-4 gap-x-6 flex items-center md:ml-6">
+                  <button type="button" className='px-4 py-2 rounded-md font-[700] bg-gradient-to-br hover:bg-gradient-to-bl from-[#0ea5ea] to-[#0bd1d1]'>
+                    Subscribe
+                  </button>
                   <button
                     type="button"
                     className="rounded-full  p-1 text-slate-700 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <span className="sr-only">Search</span>
-                    <SearchNormal1 className="h-5 w-5" aria-hidden="true" />
+                    <SearchNormal1 className="h-5 w-5 text-slate-200" aria-hidden="true" />
                   </button>
                   <Link
                     to="jd"
@@ -92,14 +92,14 @@ const Layout = () => {
                     className="rounded-full  p-1 text-slate-700 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <span className="sr-only">Settings</span>
-                    <Setting2 className="h-6 w-6" aria-hidden="true" />
+                    <Setting2 className="h-6 w-6 text-slate-200" aria-hidden="true" />
                   </Link>{" "}
                   <button
                     type="button"
                     className="rounded-full  p-1 text-slate-700 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <span className="sr-only">View notifications</span>
-                    <BellIcon className="h-6 w-6" aria-hidden="true" />
+                    <BellIcon className="h-6 w-6 text-slate-200" aria-hidden="true" />
                   </button>
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
@@ -122,7 +122,7 @@ const Layout = () => {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         {userNavigation.map((item) => (
                           <Menu.Item key={item.name}>
                             {({ active }) => (
@@ -147,19 +147,16 @@ const Layout = () => {
           </div>
           {/* mobile menu button */}
           <button
-            className="px-4 bg-blue-100/70 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500/50 xl:hidden"
+            className="px-4 bg-active border-r border-gray-200 text-slate-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500/50 xl:hidden"
             onClick={() => setSidebarOpen(true)}
           >
             <span className="sr-only">Open sidebar</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            <Bars3Icon className="h-8 w-8 font-[800]" aria-hidden="true" />
           </button>
         </div>
         <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none">
           <Suspense fallback={LoadingComponent()}>
-                {/* back to top */}
-                <BackToTop />
             <Outlet />
-                <Footer />
           </Suspense>
         </main>
       </div>

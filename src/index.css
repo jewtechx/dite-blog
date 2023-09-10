@@ -18,6 +18,9 @@ body::-webkit-scrollbar-thumb{
 body::-webkit-scrollbar-track{
   background-color:#fff;
 }
+body{
+  background-color: hsla(222, 47%, 11%, 1);
+}
 /* .select {
   ::before {
     content: "";
@@ -32,7 +35,7 @@ body::-webkit-scrollbar-track{
 
 @layer base {
   .active {
-    @apply bg-blue-100/40 text-white;
+    @apply text-active;
   }
   .container{
     @apply max-w-[99rem] mx-auto

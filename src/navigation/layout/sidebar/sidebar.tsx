@@ -47,7 +47,7 @@ const SideBar: FC<Props> = ({ sidebarOpen, setSidebarOpen }) => {
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="relative flex-1 flex flex-col max-w-xs w-full pt-0 pb-4 bg-white">
+            <div className="relative flex-1 flex flex-col max-w-xs w-full pt-0 pb-4 bg-background">
               <Transition.Child
                 as={Fragment}
                 enter="ease-in-out duration-300"
@@ -78,39 +78,39 @@ const SideBar: FC<Props> = ({ sidebarOpen, setSidebarOpen }) => {
                   <Tab 
                   className={({ selected }) =>
                   classNames(
-                    "p-4 font-[600] w-full text-xl bg-slate-500/10",
+                    "p-4 font-[600] w-full text-md text-slate-100 bg-slate-500/10",
                     selected
-                      ? 'bg-white shadow border-b-[3px] border-slate-500'
-                      : 'text-slate-500 hover:bg-white/[0.12] hover:text-slate-300'
+                      ? 'bg-background text-slate-100 shadow border-b-[0.2px] border-slate-500'
+                      : ' bg-blue-950/90 hover:bg-blue-900/60 hover:text-slate-100'
                   )
                 }
                    >MENU</Tab>
                   <Tab 
-                    className={({ selected }) =>
-                    classNames(
-                      "p-4 font-[600] w-full text-xl bg-slate-500/10",
-                      selected
-                        ? 'bg-white shadow border-b-[3px] border-slate-500'
-                        : 'text-slate-500 hover:bg-white/[0.12] hover:text-slate-300'
-                    )
+                  className={({ selected }) =>
+                  classNames(
+                    "p-4 font-[600] w-full text-md text-slate-100 bg-slate-500/10",
+                    selected
+                      ? 'bg-background text-slate-100 shadow border-b-[0.2px] border-slate-500'
+                      : ' bg-blue-950/90 hover:bg-blue-900/60 hover:text-slate-100'
+                  )
                   }
                   >USER</Tab>
                 </Tab.List>
                 <Tab.Panels>
                   <Tab.Panel>
                     {navigation.map((navLink,index) => (
-                        <div key={navLink.name} className={`w-full p-4 border-b-[0.5px] border-slate-200 capitalize`}>
-                          <NavLink to={navLink.href} className={({isActive}) => isActive ? 'font-[600] text-lg capitalize !important text-blue-400/70' : 'font-[600] text-lg capitalize'}>{navLink.name}</NavLink>
+                        <div key={navLink.name} className={`w-full p-4 border-b-[0.1px]  border-slate-300/10  capitalize`}>
+                          <NavLink to={navLink.href} className={({isActive}) => isActive ? 'font-[600] text-lg capitalize !important text-active' : 'font-[600] text-slate-100 text-lg capitalize'}>{navLink.name}</NavLink>
                         </div>
                     ))}
                   </Tab.Panel>
                   <Tab.Panel>
                      {
                       userNavigation.map((user,index) => (
-                        <div key={user.name} className={`w-full p-4 border-b-[0.5px]border-slate-200 capitalize`}>
-                          <NavLink to={user.href} className={({isActive}) => isActive ? 'font-[600] text-lg capitalize !important text-blue-400/50' : 'font-[600] text-lg capitalize'}>{user.name}</NavLink>
+                        <div key={user.name} className={`w-full p-4 border-b-[0.1px] border-slate-300/10 capitalize`}>
+                          <NavLink to={user.href} className={({isActive}) => isActive ? 'font-[600] text-lg capitalize !important text-active' : 'font-[600] text-slate-100 text-lg capitalize'}>{user.name}</NavLink>
                         </div>
-                      ))
+                        ))
                      }
                   </Tab.Panel>
                 </Tab.Panels>

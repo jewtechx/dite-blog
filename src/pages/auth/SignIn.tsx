@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-import signin from "../../assets/images/signin.jpeg"
+  import signin from "../../assets/images/signin.jpeg"
 export default function SignIn() {
   return (
     <>
